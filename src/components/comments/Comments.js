@@ -10,7 +10,7 @@ function Comments({videoId, totalComments}) {
     const comments = useSelector(state => state.commentList.comments)
 
     const [text, setText] = useState('')
-
+    const {photoURL} = useSelector(state => state.auth?.user)
     const _comments = comments?.map(comment=>comment.snippet.topLevelComment.snippet)
 
     const dispatch = useDispatch()
@@ -27,8 +27,8 @@ function Comments({videoId, totalComments}) {
         <div className=" comments">
            <p>{totalComments} comments</p>
            <div className="comments__form d-flex w-100 my-2">
-           <img className="rounder-circle mr-3" 
-           src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" 
+           <img className="rounded-circle mr-3" 
+           src={photoURL} 
            alt="userimage"/>
              <form onSubmit={handelComment} className="d-flex flex-grow-1">
                <input className="flex-grow-1" 

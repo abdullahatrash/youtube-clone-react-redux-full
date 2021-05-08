@@ -8,6 +8,8 @@ import VideoHorisontal from '../../components/videoHorizontal/VideoHorisontal'
 import VideoMetaData from '../../components/videoMetaData/VideoMetaData'
 import { getRealtedVideos, getVideoById } from '../../redux/actions/videos.action'
 import "./watchscreen.scss"
+import {Helmet} from "react-helmet";
+
 
 function WatchScreen() {
 
@@ -25,6 +27,11 @@ function WatchScreen() {
 
     return (
        <Row>
+           <Helmet>
+               
+                <title>{video?.snippet?.title}</title>
+              
+            </Helmet>
            <Col lg={8}>
             <div className="watchScreen_player">
            <iframe allowFullScreen width="100%" height="100%" title={video?.snippet?.title}
